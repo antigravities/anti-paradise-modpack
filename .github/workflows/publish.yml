@@ -16,21 +16,21 @@ jobs:
       - run: zip -r modpack.zip . -x "*.git*" -x "*.js"
       - run: echo "VERSION=$(cat manifest.json | jq -r '.version_number')" >> $GITHUB_OUTPUT
         id: version
-      - run: echo 'INFO="$(node gen-release-info.js)"' >> $GITHUB_OUTPUT
+      - run: echo "INFO=\"$(node gen-release-info.js)\"" >> $GITHUB_OUTPUT
         id: releaseInfo
       - uses: ncipollo/release-action@v1
         with:
           name: ${{ steps.version.outputs.VERSION }}
           tag: ${{ steps.version.outputs.VERSION }}
           body: ${{ steps.releaseInfo.outputs.INFO }}
-      - uses: GreenTF/upload-thunderstore-package@v4
-        with:
-          namespace: Cutie
-          description: a modpack
-          token: ${{ secrets.THUNDERSTORE }}
-          name: anti_paradise
-          version: ${{ steps.version.outputs.VERSION }}
-          community: lethal-company
-          categories: |
-            modpacks
-          file: modpack.zip
+      # - uses: GreenTF/upload-thunderstore-package@v4
+      #   with:
+      #     namespace: Cutie
+      #     description: a modpack
+      #     token: ${{ secrets.THUNDERSTORE }}
+      #     name: anti_paradise
+      #     version: ${{ steps.version.outputs.VERSION }}
+      #     community: lethal-company
+      #     categories: |
+      #       modpacks
+      #     file: modpack.zip
