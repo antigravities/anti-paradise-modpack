@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: zip -r modpack.zip . -x "*.git*"
-      - run: echo "VERSION=$(cat manifest.json | jq -r '.version')" >> $GITHUB_OUTPUT
+      - run: echo "VERSION=$(cat manifest.json | jq -r '.version_number')" >> $GITHUB_OUTPUT
         id: version
       - uses: GreenTF/upload-thunderstore-package@v4
         with:
