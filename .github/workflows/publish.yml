@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: zip -r pack.zip -X "*.git*" -X ".github"
+      - run: zip -r modpack.zip . -x "*.git*"
       - uses: GreenTF/upload-thunderstore-package@v4
         with:
           namespace: Cutie
