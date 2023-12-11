@@ -1,6 +1,5 @@
 name: Publish Mod
 
-# Run when a new release is... released
 on: 
   release:
     types: [published]
@@ -9,16 +8,17 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      # Use checkout to publish the files in your repo
       - uses: actions/checkout@v3
+      - run: zip -r pack.zip -X "*.git*" -X ".github"
       - uses: GreenTF/upload-thunderstore-package@v4
         with:
-          namespace: Cutie # the thunderstore 'team' to publish under
+          namespace: Cutie
           description: a modpack
           token: ${{ secrets.THUNDERSTORE }}
-          name: anti_paradise # the name of the package
-          version: $GITHUB_REF_NAME # Use the tag as the package version
+          name: anti_paradise
+          version: ${{github.event.release.tag_name}}
           community: lethal-company
           repo: thunderstore.io
-          categories: | # <-- notice this pipe character
+          categories: |
             Modpack
+          file: pack.zip
