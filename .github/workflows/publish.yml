@@ -16,7 +16,7 @@ jobs:
       - run: zip -r modpack.zip . -x "*.git*" -x "*.js"
       - run: echo "VERSION=$(cat manifest.json | jq -r '.version_number')" >> $GITHUB_OUTPUT
         id: version
-      - run: echo "INFO=$(node gen-release-info.js)" >> $GITHUB_OUTPUT
+      - run: echo 'INFO="$(node gen-release-info.js)"' >> $GITHUB_OUTPUT
         id: releaseInfo
       - uses: ncipollo/release-action@v1
         with:
