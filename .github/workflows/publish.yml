@@ -20,4 +20,4 @@ jobs:
           community: lethal-company
           categories: |
             modpacks
-          file: pack.zip
+          file: modpack.zip
