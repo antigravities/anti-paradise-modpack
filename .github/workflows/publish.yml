@@ -15,7 +15,7 @@ jobs:
         with:
           namespace: Cutie # the thunderstore 'team' to publish under
           description: a modpack
-          token: ${{ secrets.YOUR_TOKEN_NAME }}
+          token: ${{ secrets.THUNDERSTORE }}
           name: anti_paradise # the name of the package
           version: $GITHUB_REF_NAME # Use the tag as the package version
           community: lethal-company
