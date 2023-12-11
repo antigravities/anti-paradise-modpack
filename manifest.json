@@ -1,0 +1,11 @@
+{
+	"name": "anti_paradise",
+	"version_number": "0.1.2",
+	"website_url": "https://alexandra.is/",
+	"description": "A modpack",
+	"dependencies": [
+		"BepInEx-BepInExPack-5.4.2100",
+		"notnotnotswipez-MoreCompany-1.7.1",
+		"AlexCodesGames-AdditionalSuits-1.1.0"
+	]
+}
